@@ -1,0 +1,182 @@
+﻿<%@ Page Title="NumeroSay" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+    CodeFile="Default.aspx.cs" Inherits="upload" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <script type="text/javascript">
+        var validFilesTypes = ["csv", "txt"];
+
+        function ValidateFile() {
+
+            var file = document.getElementById("<%=FileUpload1.ClientID%>");
+            var label = document.getElementById("<%=lblMessage.ClientID%>");
+            var path = file.value;
+
+            var isValidFile = false;
+
+            if (path != "") {
+
+                var ext = path.substring(path.lastIndexOf(".") + 1, path.length).toLowerCase();
+
+                for (var i = 0; i < validFilesTypes.length; i++) {
+                    if (ext == validFilesTypes[i]) {
+                        isValidFile = true;
+                        break;
+                    }
+                }
+                if (!isValidFile) {
+                    // label.style.color = "red";
+                    label.innerHTML = "Invalid File. Please upload a File with" +
+         " extension:\n\n" + validFilesTypes.join(", ");
+                }
+
+            }
+            else {
+
+                label.innerHTML = "You must select a file to upload.";
+
+            }
+
+
+            ///////////////////////////////////////////////////
+            // Validate Check box
+            /////////////////////
+            var chkBoxList = document.getElementById('<%=CheckBoxList1.ClientID %>');
+            var chkBoxCount = chkBoxList.getElementsByTagName("input");
+
+            var tot = 0;
+          
+            for (i = 0; i < chkBoxCount.length; i++) {
+
+                if (chkBoxCount[i].checked) {
+                    tot = tot + 1;
+                }
+            }
+
+
+
+            if (tot == 0) {
+              
+                isValidFile = false;
+                label.innerHTML = "You must select 1 to 3 attributes.";
+
+                
+            }
+
+            ///////////////////////////////////////////
+
+           
+
+
+            return isValidFile;
+        }
+
+        var checksDisabled = false;
+
+        function CheckBoxCheck() {
+
+            var chkBoxList = document.getElementById('<%=CheckBoxList1.ClientID %>');
+            var chkBoxCount = chkBoxList.getElementsByTagName("input");
+
+            var i = 0;
+            var tot = 0;
+
+            for (i = 0; i < chkBoxCount.length; i++) {
+
+                if (chkBoxCount[i].checked) {
+                    tot = tot + 1;
+                }
+            }
+
+            if (tot = 0) {
+              
+            }
+
+
+            if (tot > 2) {
+
+                for (i = 0; i < chkBoxCount.length; i++) {
+
+                    if (!chkBoxCount[i].checked) {
+                        chkBoxCount[i].disabled = true;
+                    }
+                }
+
+                checksDisabled = true;
+            }
+
+            else {
+
+                if (checksDisabled) {
+
+                    checksDisabled = false;
+
+                    for (i = 0; i < chkBoxCount.length; i++) {
+                        if (!chkBoxCount[i].checked) {
+                            chkBoxCount[i].disabled = false;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+    <h3>
+        Select Date Format</h3>
+    <br />
+    <asp:DropDownList ID="ddlFormat" runat="server" Width="97px">
+        <asp:ListItem Value="MM/dd/yyyy" Selected="True">mm/dd/yyyy</asp:ListItem>
+        <asp:ListItem Value="MM/dd/yy">mm/dd/yy</asp:ListItem>
+       <%-- <asp:ListItem>MM-dd-yyyy</asp:ListItem>
+        <asp:ListItem>MM-dd-yy</asp:ListItem>
+        <asp:ListItem>MM.dd.yy</asp:ListItem>
+        <asp:ListItem>MM.dd.yyyy</asp:ListItem>--%>
+       <%-- <asp:ListItem>MMddyyyy</asp:ListItem>
+        <asp:ListItem>MMddyy</asp:ListItem>--%>
+        <asp:ListItem Value="dd/MM/yyyy">dd/mm/yyyy</asp:ListItem>
+        <asp:ListItem Value="dd/MM/yy">dd/mm/yy</asp:ListItem>
+        <%--<asp:ListItem>dd-MM-yyyy</asp:ListItem>
+        <asp:ListItem>dd-MM-yy</asp:ListItem>
+        <asp:ListItem>dd.MM.yyyy</asp:ListItem>
+        <asp:ListItem>dd.MM.yy</asp:ListItem>--%>
+     <%--   <asp:ListItem>ddMMyyyy</asp:ListItem>
+        <asp:ListItem>ddMMyy</asp:ListItem>--%>
+        <asp:ListItem Value="yyyy/MM/dd">yyyy/mm/dd</asp:ListItem>
+        <asp:ListItem Value="yy/MM/dd">yy/mm/dd</asp:ListItem>
+      <%--  <asp:ListItem>yyyy-MM-dd</asp:ListItem>
+        <asp:ListItem>yy-MM-dd</asp:ListItem>
+        <asp:ListItem>yyyy.MM.dd</asp:ListItem>
+        <asp:ListItem>yy.MM.dd</asp:ListItem>--%>
+    <%--    <asp:ListItem>yyyyMMdd</asp:ListItem>
+        <asp:ListItem>yyMMdd</asp:ListItem>--%>
+        <asp:ListItem Value="yyyy/dd/MM">yyyy/dd/mm</asp:ListItem>
+        <asp:ListItem Value="yy/dd/MM">yy/dd/mm</asp:ListItem>
+      <%--  <asp:ListItem>yyyy-dd-MM</asp:ListItem>
+        <asp:ListItem>yy-dd-MM</asp:ListItem>
+        <asp:ListItem>yyyy.dd.MM</asp:ListItem>
+        <asp:ListItem>yy.dd.MM</asp:ListItem>--%>
+    <%--    <asp:ListItem>yyyyddMM</asp:ListItem>
+        <asp:ListItem>yyddMM</asp:ListItem>--%>
+    </asp:DropDownList>
+    <br />
+    <br />
+    <asp:FileUpload ID="FileUpload1" runat="server" ViewStateMode="Enabled" />
+    <asp:Button ID="Button1" runat="server" Text="Upload & Run" OnClientClick="return ValidateFile()"
+        OnClick="Button1_Click" />
+    <br />
+    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+    <h3>
+        Select 1 to 3 Attributes</h3>
+    <br />
+    <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatColumns="7" DataSourceID="AttributeDataSource"
+        DataTextField="attribute" DataValueField="Id" 
+        onclick="javascript:CheckBoxCheck();" ViewStateMode="Disabled">
+    </asp:CheckBoxList>
+    <asp:AccessDataSource ID="AttributeDataSource" runat="server" DataFile="~/App_Data/zodiac.mdb"
+        SelectCommand="SELECT * FROM [attribute]" UpdateCommand="UPDATE [attribute] SET [attribute] = ? WHERE [Id] = ?">
+    </asp:AccessDataSource>
+</asp:Content>

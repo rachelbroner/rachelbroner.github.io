@@ -1,0 +1,12 @@
+C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\רחל\Downloads\numerosay_20-4-14_update-20180203T084647Z-001\numerosay_20-4-14_update\src\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\רחל\Downloads\numerosay_20-4-14_update-20180203T084647Z-001\numerosay_20-4-14_update\src\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\רחל\Downloads\numerosay_20-4-14_update-20180203T084647Z-001\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\רחל\Downloads\numerosay_20-4-14_update-20180203T084647Z-001\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\רחל\Downloads\numerosay_20-4-14_update-20180203T084647Z-001\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\רחל\Downloads\numerosay_20-4-14_update-20180203T084647Z-001\numerosay_20-4-14_update\src\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

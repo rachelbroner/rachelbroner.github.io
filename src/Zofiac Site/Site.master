@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <%-- <img alt="" src="images/numbers.jpg" style="height: 126px; width: 163px; float:right" />--%>
+           
+            <asp:Image ID="Image1" runat="server" Style="height: 126px; width: 163px; float: right;"
+                ImageUrl="~/images/numbers.jpg" />
+                 <div style="font-size: 12px;background-color: #ffffff; width: 585px; height: 85px; float:right; margin-right:15px;position:relative;top:22px; overflow: hidden">
+                <asp:Literal ID="Literal1" runat="server" Text="Microsoft may also host third party materials, including software, tools, data, multimedia content and documents (“Third Party Materials”), on the web site. Unless specified otherwise in an applicable license agreement, such Third Party Materials are owned, uploaded onto the web site, and licensed solely by the respective third parties and not by Microsoft, and any rights to download and use such Third Party Materials are granted solely by the third party owners of such Third Party Materials."></asp:Literal>
+            </div>
+            <div class="title">
+                <h1>
+                    Numerosay.net
+                </h1>
+                <h3 style="color: #fff; position: relative; left: 22px; top: -30px">
+                    What numbers say!</h3>
+            </div>
+            
+            <%--<div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>--%>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
+                        <asp:MenuItem NavigateUrl="~/about-us.aspx" Text="About Us" />
+                        <asp:MenuItem NavigateUrl="~/faq.aspx" Text="FAQ" />
+                        <asp:MenuItem NavigateUrl="~/contact-us.aspx" Text="Contact Us" />
+                        <asp:MenuItem NavigateUrl="~/privacy.aspx" Text="Privacy Policy" />
+                    </Items>
+                </asp:Menu>
+                <div class="hideSkiplink" style="float: right; position: relative; top: -35.5px;">
+                    <%--<asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Run the Numbers"/>
+                    </Items>
+                </asp:Menu>--%>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>

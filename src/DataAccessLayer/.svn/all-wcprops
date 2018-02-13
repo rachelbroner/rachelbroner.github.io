@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/DataAccessLayer
+END
+DAL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/2/trunk/DataAccessLayer/DAL.cs
+END
+MicrosoftAccessConnector.cs
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2/trunk/DataAccessLayer/MicrosoftAccessConnector.cs
+END
+DataAccessLayer.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/2/trunk/DataAccessLayer/DataAccessLayer.csproj
+END

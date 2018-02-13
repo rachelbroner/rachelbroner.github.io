@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Globalization;
+using System.Drawing;
+
+public partial class upload : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+      
+
+       
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string fileName = FileUpload1.PostedFile.FileName;
+
+        ValideFile(fileName, FileUpload1.PostedFile.ContentType);
+
+        string tempFile = Path.Combine(SitioConfiguracion.TempPath, "dump1.txt");
+
+        
+
+
+        List<string> attributes = new List<string>();
+
+        int selectedArttibutes = 0;
+
+        foreach (ListItem item in CheckBoxList1.Items)
+        {
+            if (item.Selected)
+            {
+                selectedArttibutes++;
+                attributes.Add(item.Text);
+            }
+        }
+
+        if (selectedArttibutes > 0)
+        {
+
+            CommonData.SelectedAttributes = attributes;
+            CommonData.DateFormat = ddlFormat.SelectedValue;
+
+
+
+            FileUpload1.SaveAs(tempFile);
+
+            Response.Redirect("~/results.aspx");
+        }
+        else
+        {
+            lblMessage.ForeColor = Color.Red;
+            lblMessage.Text = "You must select 1 to 3 attributes.";
+        }
+
+        
+
+    }
+
+    private void ValideFile(string fileName, string ContentType)
+    {
+
+        //text/plain
+        //application/vnd.ms-excel
+
+        if (!String.IsNullOrEmpty(fileName))
+        {
+
+            bool valid = Utils.ValidateExtension(fileName);
+
+            if (!valid)
+            {
+                lblMessage.Text = "Invalid File. Please upload a File with extension csv or txt";
+            }
+            else
+            {
+                lblMessage.ForeColor = Color.Green;
+                lblMessage.Text = "File successfully uploaded";
+
+                //switch (ContentType)
+                //{
+                //    case "text/plain":
+                //    case "application/vnd.ms-excel":
+
+                //        lblMessage.Text = "File successfully uploaded";
+                //        break;
+
+                //    default :
+                //        lblMessage.Text = "Invalid File Format";
+                //        break;
+
+
+                //}
+
+               
+            }
+        }
+        else
+        {
+            lblMessage.Text = "You must select a file to upload.";
+        }
+    }
+  
+   
+}

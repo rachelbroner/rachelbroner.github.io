@@ -1,0 +1,14 @@
+﻿<p>Hello Administrator!</p>
+
+<p>You have received a message via the Contact Form.</p>
+
+<p>Contact Form Details:</p>
+<b>Name:</b> <%Name%> <br/>
+<b>Email:</b> <%Email%> <br/>
+<b>Subject:</b> <%Subject%> <br/>
+<b>Message:</b> <%Message%> <br/>
+
+<p>You can reply to this visitor just by replying this email.</p>
+
+
+<p>Have a Good Day!</p>

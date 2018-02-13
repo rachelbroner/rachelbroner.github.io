@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+    <configSections>
+        <sectionGroup name="system.web">
+            <section name="sanitizer"
+              requirePermission="false"
+              type="AjaxControlToolkit.Sanitizer.ProviderSanitizerSection, 
+        AjaxControlToolkit"/>
+        </sectionGroup>
+    </configSections>
+    <appSettings>
+        <add key="DBFile" value="App_Data\\zodiac.mdb" />
+        <add key="tempPath" value="d:\\Henny\\Packed\\(F) HENNY\\RAC\\POR HACER\\FREELANCER.COM\\NS application\\Project\\ZodiacCalculator\\Zofiac Site\\temp\\" />
+        <!--<add key="tempPath" value="C:\\Inetpub\\vhosts\\numerosay.net\\httpdocs\\temp\\"/>-->
+        <add key="ContactFormTemplatePath" value="EmailTemplates\ContactForm.txt" />
+        <add key="ContactFormSubject" value="NumeroSay.Net - New Contact Message" />
+        <add key="adminEmail" value="mega_tec@netvision.net.il" />
+      <add key="AdminID" value="P@ssword123" />
+    </appSettings>
+    <connectionStrings>
+      <add name="ApplicationServices"
+         connectionString="Server=.;Database=numerosaynet;Trusted_Connection=True;"
+         providerName="System.Data.SqlClient"/>
+        <!--<add name="ApplicationServices" 
+             connectionString="Data Source=MORDOR\SQLEXPRESS2008;Initial Catalog=numerosaynet;User ID=sa;Password=1234;Persist Security Info=True" providerName="System.Data.SqlClient" />-->
+    </connectionStrings>
+    <system.web>
+        <sanitizer defaultProvider="HtmlAgilityPackSanitizerProvider">
+            <providers>
+                <add name="HtmlAgilityPackSanitizerProvider"
+                     type="AjaxControlToolkit.Sanitizer.HtmlAgilityPackSanitizerProvider">
+                </add>
+            </providers>
+        </sanitizer>
+        <compilation debug="true" targetFramework="4.0">
+
+            <assemblies>
+                <add assembly="System.Data.Services.Client, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+            </assemblies>
+        </compilation>
+        <authentication mode="Forms">
+            <forms loginUrl="~/manager/Login.aspx" timeout="2880" />
+        </authentication>
+        <membership>
+            <providers>
+                <clear />
+                <add name="AspNetSqlMembershipProvider" type="System.Web.Security.SqlMembershipProvider" connectionStringName="ApplicationServices" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" />
+            </providers>
+        </membership>
+        <profile>
+            <providers>
+                <clear />
+                <add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="ApplicationServices" applicationName="/" />
+            </providers>
+        </profile>
+        <roleManager enabled="false">
+            <providers>
+                <clear />
+                <add name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" connectionStringName="ApplicationServices" applicationName="/" />
+                <add name="AspNetWindowsTokenRoleProvider" type="System.Web.Security.WindowsTokenRoleProvider" applicationName="/" />
+            </providers>
+        </roleManager>
+        <pages enableViewStateMac="false" viewStateEncryptionMode="Never" enableEventValidation="false">
+            <controls>
+                <add tagPrefix="ajaxToolkit" assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" />
+            </controls>
+        </pages>
+    </system.web>
+    <system.net>
+        <mailSettings>
+            <smtp from="mega_tec@netvision.net.il">
+                <network host="mail.numerosay.co.il" port="25" userName="?" password="?" />
+            </smtp>
+        </mailSettings>
+    </system.net>
+    <system.webServer>
+        <modules runAllManagedModulesForAllRequests="true" />
+    </system.webServer>
+</configuration>
