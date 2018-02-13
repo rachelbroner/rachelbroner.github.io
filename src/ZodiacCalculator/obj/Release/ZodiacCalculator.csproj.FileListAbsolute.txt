@@ -1,5 +1,0 @@
-C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\ZodiacCalculator\bin\Release\ZodiacCalculator.dll
-C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\ZodiacCalculator\bin\Release\ZodiacCalculator.pdb
-C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\ZodiacCalculator\obj\Release\ZodiacCalculator.csproj.CoreCompileInputs.cache
-C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\ZodiacCalculator\obj\Release\ZodiacCalculator.dll
-C:\Users\lstroh\Documents\Work\Shlomo\22-1-18\numerosay_20-4-14_update\src\ZodiacCalculator\obj\Release\ZodiacCalculator.pdb
